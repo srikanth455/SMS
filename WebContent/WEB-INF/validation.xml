@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+
+	<!--
+		This is a minimal Validator form file with a couple of examples.
+	-->
+
+	<global>
+
+		<!--
+			An example global constant <constant>
+			<constant-name>postalCode</constant-name>
+			<constant-value>^\d{5}\d*$</constant-value> </constant> end example
+		-->
+
+	</global>
+
+	<formset>
+
+		<form name="loginForm">
+			<field property="staffName" depends="required,minlength">
+				<arg0 key="staffName" resource="false" />
+				<arg1 name="minlength" key="${var:minlength}" resource="false" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>6</var-value>
+				</var>
+			</field>
+			<field property="staffName" depends="maxlength">
+				<arg0 key="staffName" resource="false" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>18</var-value>
+				</var>
+			</field>
+
+			<field property="staffPwd" depends="required,minlength">
+				<arg0 key="staffPwd" resource="false" />
+				<arg1 name="minlength" key="${var:minlength}" resource="false" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>6</var-value>
+				</var>
+			</field>
+			<field property="staffPwd" depends="maxlength">
+				<arg0 key="staffPwd" resource="false" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>18</var-value>
+				</var>
+			</field>
+		</form>
+
+		<!-- An example form -->
+		<form name="logonForm">
+			<field property="username" depends="required">
+				<arg0 key="logonForm.username" />
+			</field>
+			<field property="password" depends="required,mask">
+				<arg0 key="logonForm.password" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+		</form>
+
+	</formset>
+
+	<!-- An example formset for another locale -->
+	<formset language="fr">
+
+		<constant>
+			<constant-name>postalCode</constant-name>
+			<constant-value>^[0-9a-zA-Z]*$</constant-value>
+		</constant>
+
+		<!-- An example form -->
+		<form name="logonForm">
+			<field property="username" depends="required">
+				<arg0 key="logonForm.username" />
+			</field>
+			<field property="password" depends="required,mask">
+				<arg0 key="logonForm.password" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+		</form>
+
+	</formset>
+
+</form-validation>

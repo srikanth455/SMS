@@ -1,0 +1,41 @@
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://struts.apache.org/dtds/struts-config_1_1.dtd">
+
+
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="com.sms.bo.LoginForm" />
+		<form-bean name="studentForm" type="com.sms.bo.StudentRegisterForm" />
+		<form-bean name="studentDispatchActionForm" type="com.sms.bo.StudentDispatchActionForm" />
+	</form-beans>
+
+	<action-mappings>
+
+		<action name="loginForm" path="/LoginAction" type="com.sms.action.LoginAction"
+			scope="session" input="/login.jsp" validate="true">
+			<forward name="success" path="/students.jsp" />
+			<forward name="failure" path="/login.jsp" />
+		</action>
+		<action name="studentForm" path="/StudentRegisterAction" type="com.sms.action.StudentRegisterAction"
+			scope="session" input="/register.jsp" validate="true">
+			<forward name="success" path="/register.jsp" />
+		</action>
+
+
+		<action path="/studentDispatchAction" name="studentDispatchActionForm"
+			type="com.sms.action.StudentDispatchAction" validate="true" scope="session"
+			input="/students.jsp" parameter="parameter">
+			<forward name="view" path="/view.jsp" />
+			<forward name="register" path="/register.jsp" />
+		</action>
+
+	</action-mappings>
+
+	<message-resources parameter="ApplicationResources" />
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+</struts-config>
