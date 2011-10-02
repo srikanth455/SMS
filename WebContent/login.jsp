@@ -13,10 +13,23 @@
 School Management System
 <pre>
 <html:form action="/LoginAction.do">
-Staff Name : <html:text property="staffName" /><html:errors property="staffName"/><br>
-Staff Password  : <html:password property="staffPwd" /><html:errors property="staffPwd"/><br>
-	<html:submit value="Login" />
+<table>
+<tr>
+<td>Staff Name :</td>
+			<td> <html:text property="staffName" /><html:errors
+				property="staffName" /></td>
+		</tr>
+				<tr>
+<td>Staff Password  :</td>
+			<td> <html:password property="staffPwd" /><html:errors
+				property="staffPwd" /></td>
+		</tr>
+	<tr>
+			<td><html:submit value="Login" /></td>
+		</tr>
+</table>
 </html:form>
+
 </pre>
 </body>
 </html>

@@ -49,8 +49,8 @@ Student Registration Form:
 		</tr>
 		<tr>
 			<td>Sex:</td>
-			<td><html:radio property="gender" value="Male"/> Male 
-			<html:radio property="gender" value="Female"/>Female</td>
+			<td><html:radio property="sex" value="Male"/> Male   
+			<html:radio property="sex" value="Female"/>Female</td>
 		</tr>
 		<tr>
 			<td>Parents Email Address(if any):</td>

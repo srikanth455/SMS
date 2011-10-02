@@ -34,7 +34,7 @@ public class StudentRegisterAction extends Action {
 		studentForm.setEmail(request.getParameter("email"));
 
 		if (null != conn) {
-			String query = "INSERT INTO student_details ( firstName, middleName, lastName fatherName, motherName, resAddress, coj, dob, age, sex, email) "
+			String query = "INSERT INTO student_details ( ,firstName, middleName, lastName fatherName, motherName, resAddress, coj, dob, age, sex, email) "
 					+ "VALUES ( \""
 					+ studentForm.getFirstName()
 					+ "\",\""
