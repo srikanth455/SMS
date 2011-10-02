@@ -11,7 +11,7 @@
 <title>Student Registration</title>
 </head>
 <body>
-Register Students:
+Student Registration Form:
 <br>
 <html:form action="/StudentRegisterAction.do">
 	<table>
