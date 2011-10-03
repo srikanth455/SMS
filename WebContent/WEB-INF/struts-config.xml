@@ -16,7 +16,7 @@
 		<action name="loginForm" path="/LoginAction" type="com.sms.action.LoginAction"
 			scope="session" input="/login.jsp" validate="true">
 			<forward name="success" path="/students.jsp" />
-			<forward name="failure" path="/login.jsp" />
+			<forward name="failure" path="/faillure.jsp" />
 		</action>
 		<action name="studentForm" path="/StudentRegisterAction" type="com.sms.action.StudentRegisterAction"
 			scope="session" input="/register.jsp" validate="true">

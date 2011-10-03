@@ -1,6 +1,12 @@
 package com.sms.bo;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionError;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 public class LoginForm extends ActionForm {
 	private String staffName;
@@ -22,20 +28,19 @@ public class LoginForm extends ActionForm {
 		this.staffPwd = staffPwd;
 	}
 
-	
-	/*public ActionErrors validate(ActionMapping mapping,
+	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
-		ActionErrors errors = super.validate(mapping, request);
-		if ((StaffPwd == null || StaffPwd.length() < 6)) {
+		ActionErrors errors =new ActionErrors();
+		if ((staffPwd == null || staffPwd.length() < 6)) {
 			errors
-					.add("StaffPwd", new ActionMessage(
+					.add(staffPwd, new ActionError(
 							"error.StaffPwd.required"));
 		}
-		if ((StaffName == null || StaffName.length() < 6)) {
-			errors.add("StaffName", new ActionMessage(
+		if ((staffName == null || staffName.length() < 6)) {
+			errors.add(staffName, new ActionError(
 					"error.StaffName.required"));
 		}
 		return errors;
-	}*/
+	}
 
 }

@@ -24,7 +24,7 @@
 
 		<form name="loginForm">
 			<field property="staffName" depends="required,minlength">
-				<arg0 key="staffName" resource="false" />
+				<arg0 key="loginForm.staffName" resource="false" />
 				<arg1 name="minlength" key="${var:minlength}" resource="false" />
 				<var>
 					<var-name>minlength</var-name>
@@ -32,7 +32,7 @@
 				</var>
 			</field>
 			<field property="staffName" depends="maxlength">
-				<arg0 key="staffName" resource="false" />
+				<arg0 key="loginForm.staffName" resource="false" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
 				<var>
 					<var-name>maxlength</var-name>
@@ -41,7 +41,7 @@
 			</field>
 
 			<field property="staffPwd" depends="required,minlength">
-				<arg0 key="staffPwd" resource="false" />
+				<arg0 key="loginForm.staffPwd" resource="false" />
 				<arg1 name="minlength" key="${var:minlength}" resource="false" />
 				<var>
 					<var-name>minlength</var-name>
@@ -49,7 +49,7 @@
 				</var>
 			</field>
 			<field property="staffPwd" depends="maxlength">
-				<arg0 key="staffPwd" resource="false" />
+				<arg0 key="loginForm.staffPwd" resource="false" />
 				<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
 				<var>
 					<var-name>maxlength</var-name>
