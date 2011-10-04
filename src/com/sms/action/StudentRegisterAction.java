@@ -3,6 +3,8 @@ package com.sms.action;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.*;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,26 +34,34 @@ public class StudentRegisterAction extends Action {
 		studentForm.setDob(request.getParameter("dob"));
 		studentForm.setSex(request.getParameter("sex"));
 		studentForm.setEmail(request.getParameter("email"));
-
-		if (null != conn) {
-			String query = "INSERT INTO student_details ( ,firstName, middleName, lastName fatherName, motherName, resAddress, coj, dob, age, sex, email) "
+		
+		DateFormat formatter ; 
+		Date date = new Date(System.currentTimeMillis());  
+		  formatter = new SimpleDateFormat("dd-MMM-yy");
+		  String dateString = request.getParameter("dob").toString();
+//		  date = (Date)formatter.parse("dateString");
+		  String ds = formatter.format(date);
+		  String s = formatter.format(date);
+		
+		  if (null != conn) {
+			String query = "INSERT INTO student_details (firstName, middleName, lastName, fatherName, motherName, resAddress, coj, dob, sex, email) "
 					+ "VALUES ( \""
 					+ studentForm.getFirstName()
 					+ "\",\""
 					+ studentForm.getMiddleName()
 					+ "\",\""
 					+ studentForm.getLastName()
-					+ "\","
+					+ "\",\""
 					+ studentForm.getFatherName()
-					+ "\","
+					+ "\",\""
 					+ studentForm.getMotherName()
-					+ "\","
+					+ "\",\""
 					+ studentForm.getResAddress()
-					+ "\","
+					+ "\",\""
 					+ studentForm.getCoj()
-					+ ",\""
-					+ studentForm.getDob()
-					+ "\","
+					+ "\",\""
+					+ date
+					+ "\",\""
 					+ studentForm.getSex()
 					+ "\",\""
 					+ studentForm.getEmail() + "\")";
@@ -63,8 +73,9 @@ public class StudentRegisterAction extends Action {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-
+			return mapping.findForward("success");
 		}
-		return mapping.findForward("success");
+		else 
+			return mapping.findForward("failure");
 	}
 }
