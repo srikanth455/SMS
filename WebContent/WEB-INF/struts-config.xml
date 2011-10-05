@@ -2,12 +2,11 @@
           "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
           "http://struts.apache.org/dtds/struts-config_1_1.dtd">
 
-
-
 <struts-config>
 	<form-beans>
 		<form-bean name="loginForm" type="com.sms.bo.LoginForm" />
 		<form-bean name="studentForm" type="com.sms.bo.StudentRegisterForm" />
+		<form-bean name="viewForm" type="com.sms.bo.ViewForm" />
 		<form-bean name="studentDispatchActionForm" type="com.sms.bo.StudentDispatchActionForm" />
 	</form-beans>
 
@@ -16,13 +15,19 @@
 		<action name="loginForm" path="/LoginAction" type="com.sms.action.LoginAction"
 			scope="session" input="/login.jsp" validate="true">
 			<forward name="success" path="/students.jsp" />
-			<forward name="failure" path="/failure.jsp" />
+			<forward name="failure" path="/error.jsp" />
 		</action>
-		<action name="studentForm" path="/StudentRegisterAction" type="com.sms.action.StudentRegisterAction"
-			scope="session" input="/register.jsp" validate="true">
+
+		<action name="studentForm" path="/StudentRegisterAction"
+			type="com.sms.action.StudentRegisterAction" scope="session" input="/register.jsp"
+			validate="true">
 			<forward name="success" path="/register.jsp" />
 		</action>
 
+		<action name="viewForm" path="/ViewAction" type="com.sms.action.ViewAction"
+			scope="session" input="/view.jsp" validate="true">
+			<forward name="success" path="/viewstudents.jsp" />
+		</action>
 
 		<action path="/studentDispatchAction" name="studentDispatchActionForm"
 			type="com.sms.action.StudentDispatchAction" validate="true" scope="session"
