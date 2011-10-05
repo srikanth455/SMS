@@ -24,8 +24,6 @@ public class LoginAction extends Action {
 		Connection conn = DbConnection.getConnection();
 
 		LoginForm loginForm = (LoginForm) form;
-		loginForm.setStaffName(request.getParameter("staffName"));
-		loginForm.setStaffPwd(request.getParameter("staffPwd"));
 		
 		if (!loginForm.getStaffName().equals("")
 				&& !loginForm.getStaffPwd().equals("")) {

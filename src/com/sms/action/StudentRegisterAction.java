@@ -24,24 +24,15 @@ public class StudentRegisterAction extends Action {
 		Connection conn = DbConnection.getConnection();
 
 		StudentRegisterForm studentForm = (StudentRegisterForm) form;
-		studentForm.setFirstName(request.getParameter("firstName"));
-		studentForm.setMiddleName(request.getParameter("middleName"));
-		studentForm.setLastName(request.getParameter("lastName"));
-		studentForm.setFatherName(request.getParameter("fatherName"));
-		studentForm.setMotherName(request.getParameter("motherName"));
-		studentForm.setResAddress(request.getParameter("resAddress"));
-		studentForm.setCoj(request.getParameter("coj"));
-		studentForm.setDob(request.getParameter("dob"));
-		studentForm.setSex(request.getParameter("sex"));
-		studentForm.setEmail(request.getParameter("email"));
 		
-		DateFormat formatter ; 
-		Date date = new Date(System.currentTimeMillis());  
-		  formatter = new SimpleDateFormat("dd-MMM-yy");
-		  String dateString = request.getParameter("dob").toString();
-//		  date = (Date)formatter.parse("dateString");
-		  String ds = formatter.format(date);
-		  String s = formatter.format(date);
+//		DateFormat formatter ; 
+//		Date date = new Date(System.currentTimeMillis());
+//		String dob = studentForm.getDob();
+//		 formatter = new SimpleDateFormat("dd-MMM-yy");
+//		  String dateString = request.getParameter("dob").toString();
+//		  Date date = (Date)formatter.parse(dob);
+//		  String ds = formatter.format(date);
+//		  String s = formatter.format(date);
 		
 		  if (null != conn) {
 			String query = "INSERT INTO student_details (firstName, middleName, lastName, fatherName, motherName, resAddress, coj, dob, sex, email) "
@@ -60,7 +51,7 @@ public class StudentRegisterAction extends Action {
 					+ "\",\""
 					+ studentForm.getCoj()
 					+ "\",\""
-					+ date
+					+ studentForm.getDob()
 					+ "\",\""
 					+ studentForm.getSex()
 					+ "\",\""

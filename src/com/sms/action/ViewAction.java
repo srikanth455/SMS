@@ -53,7 +53,7 @@ public class ViewAction extends Action {
 					studentForm.setMotherName(rs.getString("motherName"));
 					studentForm.setResAddress(rs.getString("resAddress"));
 					studentForm.setCoj(rs.getString("coj"));
-					studentForm.setDob(rs.getString("dob"));
+//					studentForm.setDob(rs.getString("dob"));
 					studentForm.setSex(rs.getString("sex"));
 					studentForm.setEmail(rs.getString("email"));
 					viewStudents.add(studentForm);

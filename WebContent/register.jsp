@@ -44,7 +44,7 @@ Student Registration Form:
 			<td><html:text property="coj" /></td>
 		</tr>
 		<tr>
-			<td>Date of Birth:(dd-MMM-yy)</td>
+			<td>Date of Birth:(yyyy-mm-dd)</td>
 			<td><html:text property="dob" /></td>
 		</tr>
 		<tr>
